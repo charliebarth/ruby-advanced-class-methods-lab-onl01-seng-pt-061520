@@ -46,7 +46,8 @@ class Song
     @@all.sort { |a, b| a.name <=> b.name }
   end 
   def self.new_from_filename(file_name)
-    song_array = file_name.delete/.mp3/.split(" - ")
+    file_name = file_name.delete/.mp3/
+    song_array = file_name.split(" - ")
      s = Song.new
      s.name = song_array[1].to_s
      s.artist_name = song_array[0].to_s
